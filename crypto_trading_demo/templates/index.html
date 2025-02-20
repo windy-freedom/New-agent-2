@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能虚拟货币交易助手</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>智能虚拟货币交易助手</h1>
+        
+        <!-- AI控制面板 -->
+        <div class="ai-control">
+            <h2>AI交易控制</h2>
+            <div class="ai-status">
+                <span>AI状态:</span>
+                <span id="ai-status" class="inactive">已关闭</span>
+                <button id="toggle-ai" class="ai-btn">启动AI交易</button>
+            </div>
+            
+            <!-- AI交易员选择 -->
+            <h3>选择AI交易员</h3>
+            <div class="trader-cards">
+                <div class="trader-card" data-trader="trend_follower">
+                    <h4>趋势跟踪者</h4>
+                    <p>成功率: <span class="success-rate">0.00%</span></p>
+                    <p>交易次数: <span class="trade-count">0</span></p>
+                    <div class="learning-history">
+                        <h5>学习历史</h5>
+                        <ul class="learning-list"></ul>
+                    </div>
+                    <button class="select-trader">选择</button>
+                </div>
+                
+                <div class="trader-card" data-trader="mean_reversal">
+                    <h4>均值回归者</h4>
+                    <p>成功率: <span class="success-rate">0.00%</span></p>
+                    <p>交易次数: <span class="trade-count">0</span></p>
+                    <div class="learning-history">
+                        <h5>学习历史</h5>
+                        <ul class="learning-list"></ul>
+                    </div>
+                    <button class="select-trader">选择</button>
+                </div>
+                
+                <div class="trader-card" data-trader="volume_based">
+                    <h4>量价分析师</h4>
+                    <p>成功率: <span class="success-rate">0.00%</span></p>
+                    <p>交易次数: <span class="trade-count">0</span></p>
+                    <div class="learning-history">
+                        <h5>学习历史</h5>
+                        <ul class="learning-list"></ul>
+                    </div>
+                    <button class="select-trader">选择</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 账户信息 -->
+        <div class="account-info">
+            <h2>账户信息</h2>
+            <p>余额: <span id="balance">100000.00</span> USDT</p>
+            <h3>持仓</h3>
+            <ul id="portfolio-list"></ul>
+        </div>
+
+        <!-- 市场数据 -->
+        <div class="market-data">
+            <h2>市场数据</h2>
+            <div id="crypto-list" class="crypto-cards"></div>
+        </div>
+
+        <!-- 交易面板 -->
+        <div class="trading-panel">
+            <h2>交易操作</h2>
+            <div class="trade-form">
+                <select id="crypto-select">
+                    <option value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                    <option value="DOGE">DOGE</option>
+                </select>
+                <input type="number" id="trade-amount" placeholder="输入交易数量">
+                <div class="trade-buttons">
+                    <button onclick="executeTrade('buy')" class="buy-btn">买入</button>
+                    <button onclick="executeTrade('sell')" class="sell-btn">卖出</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交易历史 -->
+        <div class="trade-history">
+            <h2>交易历史</h2>
+            <div class="history-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>货币</th>
+                            <th>操作</th>
+                            <th>数量</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
